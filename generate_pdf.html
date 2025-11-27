@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate PDF - User Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: linear-gradient(135deg, #4fc3f7, #29b6f6);
+            color: white;
+            border-radius: 10px;
+        }
+        
+        .step {
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid #4fc3f7;
+            background: #f8f9fa;
+        }
+        
+        .step h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #4fc3f7;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 10px 5px;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #29b6f6;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .btn-success {
+            background: #28a745;
+        }
+        
+        .btn-success:hover {
+            background: #218838;
+        }
+        
+        .alert {
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .alert-info {
+            background: #e3f2fd;
+            border: 1px solid #4fc3f7;
+            color: #0277bd;
+        }
+        
+        .alert-warning {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            color: #856404;
+        }
+        
+        .file-list {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        
+        .file-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .file-list li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📄 Generate PDF User Guide</h1>
+            <p>Panduan untuk membuat PDF dari User Guide E-Magazine</p>
+        </div>
+        
+        <div class="step">
+            <h3>📋 Langkah 1: Persiapan Screenshot</h3>
+            <p>Sebelum generate PDF, pastikan semua screenshot sudah tersedia di folder <code>screenshots/</code></p>
+            
+            <div class="alert alert-info">
+                <strong>📸 Screenshot yang diperlukan:</strong><br>
+                Total 25 file screenshot untuk melengkapi user guide
+            </div>
+            
+            <div class="file-list">
+                <strong>Daftar file screenshot:</strong>
+                <ul>
+                    <li>beranda.png - Halaman beranda</li>
+                    <li>register.png - Halaman registrasi</li>
+                    <li>login.png - Halaman login</li>
+                    <li>dashboard_siswa.png - Dashboard siswa</li>
+                    <li>dashboard_guru.png - Dashboard guru</li>
+                    <li>dashboard_admin.png - Dashboard admin</li>
+                    <li>Dan 19 screenshot lainnya (lihat screenshots/README.md)</li>
+                </ul>
+            </div>
+            
+            <a href="screenshots/" class="btn">📁 Buka Folder Screenshots</a>
+            <a href="screenshots/README.md" class="btn">📋 Lihat Daftar Lengkap</a>
+        </div>
+        
+        <div class="step">
+            <h3>📖 Langkah 2: Buka User Guide</h3>
+            <p>Buka file user guide yang sudah dioptimalkan untuk PDF</p>
+            
+            <a href="user_guide_pdf.html" class="btn btn-success">📖 Buka User Guide PDF</a>
+        </div>
+        
+        <div class="step">
+            <h3>🖨️ Langkah 3: Generate PDF</h3>
+            <p>Setelah user guide terbuka, ikuti langkah berikut:</p>
+            
+            <ol>
+                <li><strong>Tekan Ctrl+P</strong> (Windows) atau <strong>Cmd+P</strong> (Mac)</li>
+                <li><strong>Pilih "Save as PDF"</strong> di bagian Destination/Printer</li>
+                <li><strong>Atur pengaturan berikut:</strong>
+                    <ul>
+                        <li>Layout: Portrait</li>
+                        <li>Paper size: A4</li>
+                        <li>Margins: Default</li>
+                        <li>Scale: 100%</li>
+                        <li>Options: ✅ Background graphics</li>
+                    </ul>
+                </li>
+                <li><strong>Klik "Save"</strong> dan pilih lokasi penyimpanan</li>
+                <li><strong>Nama file:</strong> "User_Guide_E-Magazine_v1.0.pdf"</li>
+            </ol>
+            
+            <div class="alert alert-warning">
+                <strong>⚠️ Penting:</strong> Pastikan opsi "Background graphics" dicentang agar warna dan styling tetap muncul di PDF.
+            </div>
+        </div>
+        
+        <div class="step">
+            <h3>✅ Langkah 4: Verifikasi PDF</h3>
+            <p>Setelah PDF berhasil dibuat, lakukan pengecekan:</p>
+            
+            <ul>
+                <li>✅ Semua halaman ter-render dengan benar</li>
+                <li>✅ Screenshot muncul di tempat yang tepat</li>
+                <li>✅ Warna dan formatting tetap konsisten</li>
+                <li>✅ Daftar isi dapat diklik (jika browser mendukung)</li>
+                <li>✅ Total halaman sekitar 22-25 halaman</li>
+            </ul>
+        </div>
+        
+        <div class="step">
+            <h3>🔄 Alternatif: Generate Otomatis</h3>
+            <p>Jika ingin generate PDF secara otomatis menggunakan script:</p>
+            
+            <div class="alert alert-info">
+                <strong>Requirement:</strong> Perlu install Chrome headless atau wkhtmltopdf
+            </div>
+            
+            <a href="generate_screenshots.php" class="btn">🤖 Generate Otomatis</a>
+        </div>
+        
+        <div class="step">
+            <h3>📤 Langkah 5: Distribusi</h3>
+            <p>Setelah PDF siap, Anda dapat:</p>
+            
+            <ul>
+                <li>📧 Email ke seluruh user sistem</li>
+                <li>📋 Print untuk dibagikan secara fisik</li>
+                <li>💾 Upload ke server untuk download</li>
+                <li>📱 Share melalui WhatsApp/media sosial</li>
+            </ul>
+        </div>
+        
+        <div style="text-align: center; margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 10px;">
+            <h3>🎉 Selesai!</h3>
+            <p>User Guide PDF siap digunakan dan didistribusikan</p>
+            
+            <div style="margin-top: 20px;">
+                <a href="user_guide_pdf.html" class="btn btn-success">📖 Buka User Guide</a>
+                <a href="public.php" class="btn">🏠 Kembali ke Beranda</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Auto-check if screenshots exist
+        document.addEventListener('DOMContentLoaded', function() {
+            // This would check if screenshot files exist
+            // For now, just show a reminder
+            console.log('Reminder: Pastikan semua screenshot sudah tersedia sebelum generate PDF');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>User Guide E-Magazine Sekolah</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 1.5cm;
+        }
+        
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
+            }
+            
+            .cover {
+                min-height: 24cm;
+                page-break-after: always;
+            }
+        }
+        
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 12pt;
+            line-height: 1.6;
+            color: #000;
+            text-align: justify;
+        }
+        
+        .cover {
+            text-align: center;
+            page-break-after: always;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2cm;
+        }
+        
+        .cover h1 {
+            font-size: 32pt;
+            color: #000;
+            margin-bottom: 1cm;
+            font-weight: bold;
+        }
+        
+        .cover h2 {
+            font-size: 24pt;
+            color: #000;
+            margin-bottom: 2cm;
+            font-weight: normal;
+        }
+        
+        .toc {
+            page-break-after: always;
+        }
+        
+        .toc h2 {
+            font-size: 18pt;
+            color: #000;
+            border-bottom: 2pt solid #000;
+            padding-bottom: 0.5cm;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .toc ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .toc li {
+            margin: 0.3cm 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .section {
+            page-break-before: always;
+        }
+        
+        .section h2 {
+            font-size: 16pt;
+            color: #000;
+            margin-bottom: 1cm;
+            font-weight: bold;
+            text-align: left;
+        }
+        
+        .section h3 {
+            font-size: 14pt;
+            color: #000;
+            margin-top: 1cm;
+            margin-bottom: 0.5cm;
+            font-weight: bold;
+        }
+        
+        .step {
+            margin: 0.8cm 0;
+            padding: 0.5cm;
+            background: #ffffff;
+        }
+        
+        .step h4 {
+            font-size: 12pt;
+            color: #000;
+            margin-bottom: 0.3cm;
+            font-weight: bold;
+        }
+        
+        .step-number {
+            background: #000;
+            color: white;
+            padding: 0.2cm 0.4cm;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 0.3cm;
+        }
+        
+        .screenshot {
+            width: 100%;
+            max-width: 15cm;
+            height: auto;
+            border: 1pt solid #ddd;
+            margin: 0.5cm 0;
+            border-radius: 0.2cm;
+            box-shadow: 0 0.1cm 0.3cm rgba(0,0,0,0.2);
+        }
+        
+        .alert {
+            padding: 0.5cm;
+            margin: 0.5cm 0;
+            border-radius: 0.2cm;
+        }
+        
+        .alert-info {
+            background: #f0f0f0;
+            border: 1pt solid #000;
+        }
+        
+        .alert-warning {
+            background: #fff3cd;
+            border: 1pt solid #ffc107;
+        }
+        
+        .role-badge {
+            background: #000;
+            color: white;
+            padding: 0.1cm 0.3cm;
+            border-radius: 0.3cm;
+            font-size: 9pt;
+            font-weight: bold;
+        }
+        
+        .role-admin { background: #666; }
+        .role-guru { background: #333; }
+        .role-siswa { background: #000; }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.5cm 0;
+        }
+        
+        th, td {
+            border: 1pt solid #ddd;
+            padding: 0.3cm;
+            text-align: left;
+        }
+        
+        th {
+            background: #f8f9fa;
+            font-weight: bold;
+        }
+        
+        .no-print {
+            display: block;
+        }
+        
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Download Button -->
+    <div class="no-print" style="position: fixed; top: 20px; right: 20px; z-index: 1000;">
+        <button onclick="downloadPDF()" style="background: #000; color: white; padding: 15px 25px; border: none; border-radius: 5px; cursor: pointer; font-size: 14pt; box-shadow: 0 4px 8px rgba(0,0,0,0.3);">
+            📄 Download PDF
+        </button>
+    </div>
+    <!-- Cover Page -->
+    <div class="cover">
+        <img src="assets/images/logo_bn-removebg-preview.png" alt="Logo SMK Bakti Nusantara 666" style="width: 5cm; height: 5cm; margin-bottom: 2cm;">
+        
+        <h1 style="margin: 1.5cm 0;">USER GUIDE</h1>
+        
+        <div style="font-size: 14pt; line-height: 2; margin-top: 3cm; text-align: center;">
+            <p><strong>Web</strong> : E-Magazine</p>
+            <p><strong>Developer</strong> : RakhaAdryFairuz</p>
+            <p><strong>Rilis</strong> : 26-11-2025</p>
+        </div>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="toc">
+        <h2>DAFTAR ISI</h2>
+        <ul>
+            <li><span>1. Pendahuluan</span><span>3</span></li>
+            <li><span>2. Fitur Utama Sistem</span><span>4</span></li>
+            <li><span>3. Mengakses Sistem</span><span>5</span></li>
+            <li style="margin-left: 1cm;"><span>3.1 Registrasi Akun Baru</span><span>5</span></li>
+            <li style="margin-left: 1cm;"><span>3.2 Login ke Sistem</span><span>6</span></li>
+            <li><span>4. Penggunaan Area Publik</span><span>7</span></li>
+            <li style="margin-left: 1cm;"><span>4.1 Membaca Artikel</span><span>7</span></li>
+            <li style="margin-left: 1cm;"><span>4.2 Like dan Komentar</span><span>8</span></li>
+            <li><span>5. Dashboard Siswa</span><span>10</span></li>
+            <li style="margin-left: 1cm;"><span>5.1 Menulis Artikel</span><span>10</span></li>
+            <li style="margin-left: 1cm;"><span>5.2 Mengelola Artikel</span><span>12</span></li>
+            <li style="margin-left: 1cm;"><span>5.3 Mengelola Profil</span><span>13</span></li>
+            <li><span>6. Dashboard Guru</span><span>14</span></li>
+            <li style="margin-left: 1cm;"><span>6.1 Moderasi Artikel</span><span>14</span></li>
+            <li style="margin-left: 1cm;"><span>6.2 Publikasi Artikel</span><span>15</span></li>
+
+            <li><span>7. Dashboard Admin</span><span>17</span></li>
+            <li style="margin-left: 1cm;"><span>7.1 Mengelola User</span><span>17</span></li>
+
+            <li><span>8. Tips dan Troubleshooting</span><span>20</span></li>
+            <li><span>9. FAQ</span><span>21</span></li>
+            <li><span>10. Kontak dan Dukungan</span><span>22</span></li>
+        </ul>
+    </div>
+
+    <!-- 1. Pendahuluan -->
+    <div class="section">
+        <h2>1. Pendahuluan</h2>
+        
+        <h3>Tentang E-Magazine Sekolah</h3>
+        <p>E-Magazine Sekolah adalah sistem manajemen konten digital yang dirancang khusus untuk lingkungan pendidikan. Sistem ini memungkinkan siswa, guru, dan admin untuk berkolaborasi dalam menciptakan, mengelola, dan mempublikasikan artikel digital.</p>
+        
+        <div class="alert alert-info">
+            <strong>Tujuan Sistem:</strong><br>
+            • Digitalisasi mading sekolah tradisional<br>
+            • Meningkatkan literasi digital siswa<br>
+            • Memfasilitasi sharing pengetahuan<br>
+            • Dokumentasi kegiatan sekolah
+        </div>
+        
+        <h3>Role Pengguna</h3>
+        <table>
+            <tr>
+                <th>Role</th>
+                <th>Akses</th>
+                <th>Fitur Utama</th>
+            </tr>
+            <tr>
+                <td><span class="role-badge role-admin">ADMIN</span></td>
+                <td>Penuh</td>
+                <td>Kelola user, kategori, sistem</td>
+            </tr>
+            <tr>
+                <td><span class="role-badge role-guru">GURU</span></td>
+                <td>Moderasi</td>
+                <td>Review artikel, publikasi, laporan</td>
+            </tr>
+            <tr>
+                <td><span class="role-badge role-siswa">SISWA</span></td>
+                <td>Terbatas</td>
+                <td>Tulis artikel, kelola profil</td>
+            </tr>
+            <tr>
+                <td>Publik</td>
+                <td>Baca</td>
+                <td>Baca artikel, like, komentar</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- 2. Fitur Utama -->
+    <div class="section">
+        <h2>2. Fitur Utama Sistem</h2>
+        
+        <div class="step">
+            <h4><span class="step-number">1</span>Halaman Beranda Interaktif</h4>
+            <p>Tampilan modern dengan artikel terbaru dan populer dalam layout dua kolom.</p>
+            <img src="screenshots/beranda.png" alt="Halaman Beranda" class="screenshot">
+        </div>
+        
+
+        
+        <div class="step">
+            <h4><span class="step-number">2</span>Editor Artikel</h4>
+            <p>Rich text editor untuk menulis artikel dengan upload gambar.</p>
+            <img src="screenshots/editor.png" alt="Editor Artikel" class="screenshot">
+        </div>
+    </div>
+
+    <!-- 3. Mengakses Sistem -->
+    <div class="section">
+        <h2>3. Mengakses Sistem</h2>
+        
+        <h3>3.1 Registrasi Akun Baru</h3>
+        
+        <div class="step">
+            <h4><span class="step-number">1</span>Buka Halaman Registrasi</h4>
+            <p>Akses URL: http://localhost/E-Magazine/register.php</p>
+            <img src="screenshots/register.png" alt="Halaman Registrasi" class="screenshot">
+        </div>
+        
+        <div class="step">
+            <h4><span class="step-number">2</span>Isi Form Registrasi</h4>
+            <p>Lengkapi data berikut:</p>
+            <ul>
+                <li><strong>Email:</strong> Email aktif yang valid</li>
+                <li><strong>Username:</strong> Minimal 3 karakter</li>
+                <li><strong>Password:</strong> Minimal 8 karakter dengan huruf besar, kecil, dan angka</li>
+            </ul>
+            <img src="screenshots/form_register.png" alt="Form Registrasi Terisi" class="screenshot">
+        </div>
+        
+        <div class="step">
+            <h4><span class="step-number">3</span>Konfirmasi Registrasi</h4>
+            <p>Setelah submit, akun akan pending menunggu aktivasi admin.</p>
+            <div class="alert alert-warning">
+                <strong>Penting:</strong> Hubungi admin untuk aktivasi akun dan penentuan role.
+            </div>
+        </div>
+        
+        <h3>3.2 Login ke Sistem</h3>
+        
+        <div class="step">
+            <h4><span class="step-number">1</span>Buka Halaman Login</h4>
+            <p>Akses URL: http://localhost/E-Magazine/login.php</p>
+            <img src="screenshots/login.png" alt="Halaman Login" class="screenshot">
+        </div>
+        
+        <div class="step">
+            <h4><span class="step-number">2</span>Masukkan Kredensial</h4>
+            <p>Isi username dan password yang telah terdaftar.</p>
+            <img src="screenshots/form_login.png" alt="Form Login Terisi" class="screenshot">
+        </div>
+        
+        <div class="step">
+            <h4><span class="step-number">3</span>Redirect ke Dashboard</h4>
+            <p>Sistem akan mengarahkan ke dashboard sesuai role:</p>
+            <ul>
+                <li>Admin → admin_dashboard.php</li>
+                <li>Guru → dashboard_guru.php</li>
+                <li>Siswa → dashboard_siswa.php</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 4. Penggunaan Area Publik -->
+    <div class="section">
+        <h2>4. Penggunaan Area Publik</h2>
+        
+        <h3>4.1 Membaca Artikel</h3>
+        
+        <div class="step">
+            <h4><span class="step-number">1</span>Navigasi Beranda</h4>
+            <p>Halaman beranda menampilkan artikel dalam dua kolom:</p>
+            <ul>
+                <li>Kiri: Artikel terbaru (card lengkap)</li>
+                <li>Kanan: Artikel populer (compact)</li>
+            </ul>
+            <img src="screenshots/layout_beranda.png" alt="Layout Beranda" class="screenshot">
+        </div>
+        
+        <div class="step">
+            <h4><span class="step-number">2</span>Buka Detail Artikel</h4>
+            <p>Klik judul atau gambar artikel untuk membuka halaman detail.</p>
+            <img src="screenshots/detail_artikel.png" alt="Detail Artikel" class="screenshot">
+        </div>
+        
+
+        
+        <h3>4.2 Like dan Komentar</h3>
+        
+        <div class="step">
+            <h4><span class="step-number">1</span>Memberikan Like</h4>
+            <p>Klik tombol "Like" dengan ikon hati pada artikel.</p>
+            <img src="screenshots/like_artikel.png" alt="Tombol Like" class="screenshot">
+        </div>
+        
+        <div class="step">
+            <h4><span class="step-number">2</span>Menulis Komentar</h4>
+            <p>Scroll ke bawah artikel dan isi form komentar.</p>
+            <img src="screenshots/form_komentar.png" alt="Form Komentar" class="screenshot">
+        </div>
+    </div>
+
+    <!-- 5. Dashboard Siswa -->
+    <div class="section">
+        <h2>5. Dashboard Siswa</h2>
+        
+        <h3>5.1 Menulis Artikel</h3>
+        
+        <div class="step">
+            <h4><span class="step-number">1</span>Akses Menu Tambah Artikel</h4>
+            <p>Dari dashboard siswa, klik "Tambah Artikel".</p>
+            <img src="screenshots/dashboard_siswa.png" alt="Dashboard Siswa" class="screenshot">
+        </div>
+        
+        <div class="step">
+            <h4><span class="step-number">2</span>Isi Form Artikel</h4>
+            <p>Lengkapi form dengan:</p>
+            <ul>
+                <li>Judul artikel</li>
+                <li>Kategori</li>
+                <li>Gambar (opsional)</li>
+                <li>Konten artikel</li>
+            </ul>
+            <img src="screenshots/form_tambah_artikel.png" alt="Form Tambah Artikel" class="screenshot">
+        </div>
+        
+        <div class="step">
+            <h4><span class="step-number">3</span>Upload Gambar</h4>
+            <p>Klik "Choose File" untuk upload gambar artikel (max 5MB).</p>
+            <img src="screenshots/upload_gambar.png" alt="Upload Gambar" class="screenshot">
+        </div>
+        
+        <div class="step">
+            <h4><span class="step-number">4</span>Submit Artikel</h4>
+            <p>Klik "Submit Artikel" setelah semua data terisi.</p>
+            <div class="alert alert-info">
+                Artikel akan berstatus "pending" menunggu review guru.
+            </div>
+        </div>
+        
+        <h3>5.2 Mengelola Artikel</h3>
+        
+        <div class="step">
+            <h4><span class="step-number">1</span>Lihat Daftar Artikel</h4>
+            <p>Menu "Artikel Saya" menampilkan semua artikel yang telah ditulis.</p>
+            <img src="screenshots/artikel_siswa.png" alt="Daftar Artikel Siswa" class="screenshot">
+        </div>
+        
+        <div class="step">
+            <h4><span class="step-number">2</span>Edit Artikel</h4>
+            <p>Klik "Edit" pada artikel dengan status Draft atau Rejected.</p>
+            <img src="screenshots/edit_artikel.png" alt="Edit Artikel" class="screenshot">
+        </div>
+        
+        <h3>5.3 Mengelola Profil</h3>
+        
+        <div class="step">
+            <h4><span class="step-number">1</span>Update Profil</h4>
+            <p>Di menu "Profil", ubah nama, email, atau password.</p>
+            <img src="screenshots/profil_siswa.png" alt="Halaman Profil" class="screenshot">
+        </div>
+        
+        <div class="step">
+            <h4><span class="step-number">2</span>Upload Foto Profil</h4>
+            <p>Pilih avatar default atau upload foto pribadi.</p>
+            <img src="screenshots/foto_profil.png" alt="Upload Foto Profil" class="screenshot">
+        </div>
+    </div>
+
+    <!-- 6. Dashboard Guru -->
+    <div class="section">
+        <h2>6. Dashboard Guru</h2>
+        
+        <h3>6.1 Moderasi Artikel</h3>
+        
+        <div class="step">
+            <h4><span class="step-number">1</span>Akses Menu Moderasi</h4>
+            <p>Dari dashboard guru, klik "Moderasi".</p>
+            <img src="screenshots/dashboard_guru.png" alt="Dashboard Guru" class="screenshot">
+        </div>
+        
+        <div class="step">
+            <h4><span class="step-number">2</span>Review Artikel</h4>
+            <p>Baca artikel siswa yang pending dan berikan keputusan.</p>
+            <img src="screenshots/moderasi_artikel.png" alt="Halaman Moderasi" class="screenshot">
+        </div>
+        
+        <div class="step">
+            <h4><span class="step-number">3</span>Berikan Keputusan</h4>
+            <p>Pilih aksi: Approve, Reject, atau Request Revision.</p>
+            <img src="screenshots/aksi_moderasi.png" alt="Aksi Moderasi" class="screenshot">
+        </div>
+        
+        <h3>6.2 Publikasi Artikel</h3>
+        
+        <div class="step">
+            <h4><span class="step-number">1</span>Menu Publikasi</h4>
+            <p>Kelola artikel yang sudah disetujui untuk publikasi.</p>
+            <img src="screenshots/publikasi.png" alt="Menu Publikasi" class="screenshot">
+        </div>
+        
+
+    </div>
+
+    <!-- 7. Dashboard Admin -->
+    <div class="section">
+        <h2>7. Dashboard Admin</h2>
+        
+        <h3>7.1 Mengelola User</h3>
+        
+        <div class="step">
+            <h4><span class="step-number">1</span>Daftar User</h4>
+            <p>Menu "Users" menampilkan semua pengguna sistem.</p>
+            <img src="screenshots/dashboard_admin.png" alt="Dashboard Admin" class="screenshot">
+        </div>
+        
+        <div class="step">
+            <h4><span class="step-number">2</span>Aktivasi Akun</h4>
+            <p>Tentukan role dan aktifkan akun user baru.</p>
+            <img src="screenshots/kelola_user.png" alt="Kelola User" class="screenshot">
+        </div>
+        
+
+        
+
+    </div>
+
+    <!-- 8. Tips dan Troubleshooting -->
+    <div class="section">
+        <h2>8. Tips dan Troubleshooting</h2>
+        
+        <h3>Tips Penggunaan</h3>
+        <ul>
+            <li>Gunakan judul artikel yang menarik dan deskriptif</li>
+            <li>Kompres gambar sebelum upload (max 5MB)</li>
+            <li>Pilih kategori yang tepat untuk artikel</li>
+            <li>Proofread artikel sebelum submit</li>
+        </ul>
+        
+        <h3>Masalah Umum</h3>
+        <table>
+            <tr>
+                <th>Masalah</th>
+                <th>Solusi</th>
+            </tr>
+            <tr>
+                <td>Tidak bisa login</td>
+                <td>Pastikan akun sudah diaktifkan admin</td>
+            </tr>
+            <tr>
+                <td>Upload gambar gagal</td>
+                <td>Cek ukuran file (max 5MB) dan format (JPG/PNG)</td>
+            </tr>
+            <tr>
+                <td>Artikel tidak muncul</td>
+                <td>Tunggu approval guru atau cek status di "Artikel Saya"</td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- 9. FAQ -->
+    <div class="section">
+        <h2>9. FAQ (Frequently Asked Questions)</h2>
+        
+        <div class="step">
+            <h4>Q: Bagaimana cara mengubah password?</h4>
+            <p><strong>A:</strong> Masuk ke menu "Profil", isi password lama dan baru, lalu klik "Update".</p>
+        </div>
+        
+        <div class="step">
+            <h4>Q: Berapa lama proses review artikel?</h4>
+            <p><strong>A:</strong> Biasanya 1-3 hari kerja, tergantung workload guru.</p>
+        </div>
+        
+        <div class="step">
+            <h4>Q: Apakah ada batasan jumlah artikel?</h4>
+            <p><strong>A:</strong> Tidak ada batasan. Siswa dianjurkan aktif menulis.</p>
+        </div>
+        
+        <div class="step">
+            <h4>Q: Bisakah mengedit artikel yang sudah published?</h4>
+            <p><strong>A:</strong> Siswa tidak bisa. Hubungi guru jika ada koreksi penting.</p>
+        </div>
+    </div>
+
+    <!-- 10. Kontak dan Dukungan -->
+    <div class="section">
+        <h2>10. Kontak dan Dukungan</h2>
+        
+        <h3>Tim Support</h3>
+        <table>
+            <tr>
+                <th>Role</th>
+                <th>Kontak</th>
+                <th>Jam Kerja</th>
+            </tr>
+            <tr>
+                <td>Admin Sistem</td>
+                <td>admin@sekolah.sch.id<br>Ext: 101</td>
+                <td>07:00 - 15:00 WIB</td>
+            </tr>
+            <tr>
+                <td>Koordinator Guru</td>
+                <td>koordinator@sekolah.sch.id<br>Ext: 102</td>
+                <td>07:00 - 15:00 WIB</td>
+            </tr>
+        </table>
+        
+        <h3>Informasi Sistem</h3>
+        <ul>
+            <li><strong>Nama:</strong> E-Magazine Sekolah</li>
+            <li><strong>Versi:</strong> 1.0</li>
+            <li><strong>Platform:</strong> Web-based (PHP/MySQL)</li>
+            <li><strong>Support:</strong> Chrome, Firefox, Safari, Edge</li>
+        </ul>
+        
+        <div class="alert alert-info">
+            <strong>Terima Kasih!</strong><br>
+            Sistem ini dikembangkan untuk mendukung digitalisasi pendidikan dan meningkatkan literasi digital siswa.
+        </div>
+    </div>
+    
+    <script>
+        function downloadPDF() {
+            // Hide download button
+            document.querySelector('.no-print').style.display = 'none';
+            
+            // Add print-specific styles
+            document.body.style.margin = '0';
+            document.body.style.padding = '0';
+            
+            // Trigger print dialog with delay
+            setTimeout(() => {
+                window.print();
+            }, 100);
+            
+            // Show download button again after print
+            setTimeout(() => {
+                document.querySelector('.no-print').style.display = 'block';
+            }, 1000);
+        }
+        
+        // Keyboard shortcut Ctrl+P
+        document.addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                e.preventDefault();
+                downloadPDF();
+            }
+        });
+    </script>
+</body>
+</html>
